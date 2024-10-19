@@ -36,3 +36,23 @@ int checkWin(char board[SIZE][SIZE]) {
     }
     return 0;
 }
+
+int main() {
+    char board[SIZE][SIZE] = {
+        {' ', ' ', ' '},
+        {' ', ' ', ' '},
+        {' ', ' ', ' '}
+    };
+    int row, col;
+    char currentPlayer = 'X';
+    int moves = 0;
+    char playAgain;
+
+    do {
+        currentPlayer = 'X';
+        moves = 0;
+
+        while (1) {
+            printBoard(board);
+            printf("Игрок %c, введите строку и столбец (0-2): ", currentPlayer);
+            scanf_s("%d %d", &row, &col);
