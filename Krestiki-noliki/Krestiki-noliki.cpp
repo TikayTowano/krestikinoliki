@@ -20,3 +20,19 @@ void printBoard(char board[SIZE][SIZE]) {
     }
     printf("\n");
 }
+
+int checkWin(char board[SIZE][SIZE]) {
+    // Проверка строк и столбцов
+    for (int i = 0; i < SIZE; i++) {
+        if ((board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ') ||
+            (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ')) {
+            return 1;
+        }
+    }
+    // Проверка диагоналей
+    if ((board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ') ||
+        (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ')) {
+        return 1;
+    }
+    return 0;
+}
