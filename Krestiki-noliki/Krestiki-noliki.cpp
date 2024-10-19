@@ -56,3 +56,46 @@ int main() {
             printBoard(board);
             printf("Игрок %c, введите строку и столбец (0-2): ", currentPlayer);
             scanf_s("%d %d", &row, &col);
+
+            // Проверка на корректность ввода
+            if (row < 0 || row >= SIZE || col < 0 || col >= SIZE || board[row][col] != ' ') {
+                printf("Некорректный ход. Попробуйте снова.\n");
+                continue;
+            }
+
+            board[row][col] = currentPlayer;
+            moves++;
+
+            if (checkWin(board)) {
+                printBoard(board);
+                printf("Игрок %c выиграл!\n", currentPlayer);
+                break;
+            }
+
+            if (moves == SIZE * SIZE) {
+                printBoard(board);
+                printf("Игра закончилась вничью!\n");
+                break;
+            }
+
+            currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+        }
+
+        printf("Хотите сыграть еще раз? (y/n): ");
+        scanf_s(" %c", &playAgain);
+
+        if (playAgain == 'n' || playAgain == 'N') {
+            break;
+        }
+
+        // Сброс игрового поля
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                board[i][j] = ' ';
+            }
+        }
+
+    } while (1);
+
+    return 0;
+}
