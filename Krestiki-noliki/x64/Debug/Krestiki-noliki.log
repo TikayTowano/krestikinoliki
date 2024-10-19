@@ -1,0 +1,2 @@
+﻿MSVCRTD.lib(exe_main.obj) : error LNK2019: ссылка на неразрешенный внешний символ main в функции "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ).
+C:\Users\Tikay_Towano\source\repos\Krestiki-noliki\x64\Debug\Krestiki-noliki.exe : fatal error LNK1120: неразрешенных внешних элементов: 1
